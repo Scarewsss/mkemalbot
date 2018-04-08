@@ -1,0 +1,18 @@
+{
+  "name": "mkemal",
+  "version": "0.0.1",
+  "description": "NİCE MUSTAFA KEMALLER İÇİN!!!",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "HZ.SAĞKOL",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "discord.js": "^11.3.2",
+    "module.js": "^2.2.4",
+    "moment": "^2.22.0",
+    "moment-duration-format": "^2.2.2"
+  }
+}
