@@ -4,26 +4,25 @@ const ayarlar = require('../ayarlar.json');
 var prefix = ayarlar.prefix;
 
 exports.run = (client, message, params) => {
-
+  const embedyardim = new Discord.RichEmbed()
+  .setTitle("Komutlar")
+  .setDescription('')
+  .setColor(0x00ffff)
+  .addField("**Eğlence ve Kullanıcı Komutları:**", `\nmkemal!herkesebendençay = Herkese Çay Alırsınız. \nmkemal!koş = Koşarsınız.\nmkemal!çayiç = Çay İçersiniz. \nmkemal!çekiç = İstediğiniz Kişiye Çekiç Atarsınız.\nmkemal!yaz = Bota İstediğiniz Şeyi Yazdırırsınız. \nmkemal!sunucuresmi = BOT Sunucunun Resmini Atar. \nmkemal!sunucubilgi = BOT Sunucu Hakkında Bilgi Verir. \nmkemal!kullanıcıbilgim = Sizin Hakkınızda Bilgi Verir. \nmkemal!atam = Atamızın Fotoğrafını atar. \nmkemal!pasam = Atamızın Gifini atar. \nmkemal!bayrak = ŞANLI TÜRK BAYRAĞIMIZI GÖSTERİRİ `)
+  .addField("**Sunucu Yetkilisi Komutları**", `mkemal!ban = İstediğiniz Kişiyi Sunucudan Banlar. \nmkemal!kick  = İstediğiniz Kişiyi Sunucudan Atar. \nmkemal!unban = İstediğiniz Kişinin Yasağını Açar. \nmkemal!sustur = İstediğiniz Kişiyi Susturur. -MUTED-`)
+  .addField("**Botun Ana Komutları**", "-yardım = BOT Komutlarını Atar. \nmkemal!bilgi = BOT Kendisi Hakkında Bilgi Verir. \nmkemal!ping = BOT Gecikme Süresini Söyler. \nmkemal!davet = BOT Davet Linkini Atar. \nmkemal!istatistik = BOT İstatistiklerini Atar.")
+  
   if (!params[0]) {
     const commandNames = Array.from(client.commands.keys());
     const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
-    message.author.sendCode('asciidoc', `= Komut Listesi =\n\n[Komut hakkında bilgi için ${ayarlar.prefix}yardım <komut adı>]\n\n${client.commands.map(c => `${ayarlar.prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} :: ${c.help.description}`).join('\n')}`);
-  if (message.channel.type !== 'dm') {
-    const ozelmesajkontrol = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setDescription('Özel mesajlarını kontrol et. :postbox:');
-    message.channel.sendEmbed(ozelmesajkontrol) }
+    message.channel.send(embedyardim);
   } else {
     let command = params[0];
     if (client.commands.has(command)) {
       command = client.commands.get(command);
-      message.author.sendCode('asciidoc', `= ${command.help.name} = \n${command.help.description}\nDoğru kullanım: ` + prefix + `${command.help.usage}`);
+      message.author.send('asciidoc', `= ${command.help.name} = \n${command.help.description}\nDoğru kullanım: ` + prefix + `${command.help.usage}`);
     }
   }
-
 };
 
 exports.conf = {
@@ -37,4 +36,6 @@ exports.help = {
   name: 'yardım',
   description: 'Tüm komutları gösterir.',
   usage: 'mkemal!yardım [komut]'
+};
+
 };
