@@ -37,5 +37,3 @@ exports.help = {
   description: 'Tüm komutları gösterir.',
   usage: 'mkemal!yardım [komut]'
 };
-
-};
