@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
 	if (mesaj.length < 1) return message.reply('**Kime Çekiç Atcağımı Yazmalısın**');
     const embed = new Discord.RichEmbed()
     .setAuthor('')
-    .setColor(3447003)
+    .setColor("RANDOM")
     .setDescription(`** ${mesaj} ` + message.author.username + ' Sana :hammer: Attı. Canın Acımış Olmalı!**')
     return message.channel.sendEmbed(embed);
 };

@@ -6,7 +6,7 @@ exports.run = (client, message, params) => {
   var sonuc = sans[Math.floor((Math.random() * sans.length))];
   const embed = new Discord.RichEmbed()
   .setImage(`${sonuc}`)
-  .setColor(0xFFF500)
+  .setColor("RANDOM")
   return message.channel.sendEmbed(embed);
 };
 

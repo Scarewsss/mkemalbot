@@ -4,10 +4,10 @@ const ayarlar = require('../ayarlar.json');
 exports.run = (client, message, params) => {
 	if (!message.guild) {
     const ozelmesajuyari = new Discord.RichEmbed()
-    .setColor(0xFF0000)
+    .setColor("RANDOM")
     .setTimestamp()
     .setAuthor(message.author.username, message.author.avatarURL)
-    .addField('**Eðlence Komutlarý Özel Mesajlarda Kullanýlamaz!**')
+    .addField('**Eï¿½lence Komutlarï¿½ ï¿½zel Mesajlarda Kullanï¿½lamaz!**')
     return message.author.sendEmbed(ozelmesajuyari); }
     if (message.channel.type !== 'dm') {
       const sunucubilgi = new Discord.RichEmbed()
@@ -29,6 +29,6 @@ exports.conf = {
 
 exports.help = {
   name: 'pasam',
-  description: 'ATAMIZIN GÝFÝNÝ YOLLAR.',
+  description: 'ATAMIZIN Gï¿½Fï¿½Nï¿½ YOLLAR.',
   usage: 'mkemal!pasamgif'
 };
